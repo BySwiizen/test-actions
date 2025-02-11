@@ -46,8 +46,8 @@ jobs:
         if: ${{ inputs.jdk }}
         uses: actions/setup-java@v4.7.0
         with:
-          distribution: "temurin"
-          java-version: "${{ inputs.jdk }}"
+          distribution: 'temurin'
+          java-version: '${{ inputs.jdk }}'
           java-package: jdk
           architecture: x64
           cache: gradle
@@ -60,7 +60,7 @@ jobs:
         uses: winterjung/split@v2.1.0
         with:
           msg: ${{ inputs.build-project }}
-          separator: ","
+          separator: ','
       - name: Build project
         if: ${{ steps.split.outputs._0 && steps.split.outputs._1 }}
         uses: nick-invision/retry@v3.0.0
