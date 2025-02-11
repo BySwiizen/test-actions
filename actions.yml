@@ -1,0 +1,10 @@
+name: "Run Shared CI"
+description: "Exécute le workflow partagé `shared-ci.yml`"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Exécuter le workflow partagé"
+      run: gh workflow run .github/workflows/shared-ci.yml --ref ${{ github.ref }}
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
