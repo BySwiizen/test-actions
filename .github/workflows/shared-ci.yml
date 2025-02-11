@@ -68,9 +68,15 @@ jobs:
           max_attempts: ${{ steps.split.outputs._0 }}
           timeout_minutes: ${{ steps.split.outputs._1 }}
           command: ./gradlew build shadowJar
+      - name: Détecter le nom du plugin sans version
+        run: |
+          JAR=$(ls build/libs/*.jar | head -n 1)
+          NAME=$(basename "$JAR_FILE" | sed -E 's/-[0-9]+(\.[0-9]+)*\.jar//')
+          echo "Nom du plugin détecté : $NAME"
+          echo "NAME=$NAME" >> $GITHUB_ENV
       - name: Upload build artifact
         if: ${{ inputs.upload != '' }}
         uses: actions/upload-artifact@v4.5.0
         with:
-          name: Artifacts
+          name: ${{ env.NAME }}
           path: ${{ inputs.upload }}
