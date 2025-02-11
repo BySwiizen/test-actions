@@ -56,14 +56,11 @@ jobs:
       - name: Make Gradlew executable
         run: chmod +x ./gradlew
       - name: Split build-project input
+        id: split
         uses: winterjung/split@v2.1.0
         with:
           msg: ${{ inputs.build-project }}
           separator: ","
-      - name: Debug - Vérifier les valeurs de steps.split
-        run: |
-          echo "Valeur de steps.split.outputs._0 : ${{ steps.split.outputs._0 }}"
-          echo "Valeur de steps.split.outputs._1 : ${{ steps.split.outputs._1 }}"
       - name: Build project
         if: ${{ steps.split.outputs._0 && steps.split.outputs._1 }}
         uses: nick-invision/retry@v3.0.0
