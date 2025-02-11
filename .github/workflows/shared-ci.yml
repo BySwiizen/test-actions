@@ -19,6 +19,7 @@ on:
        required: false
        default: 21
       build-project:
+        inputs: string
         description: "Build project"
         required: false
         default: "2,5"
