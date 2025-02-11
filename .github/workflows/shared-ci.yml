@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: "checkout git repository"
         uses: actions/checkout@v4.2.2
-      - name: Setup Gradle
+      - name: "Setup Gradle"
         if: ${{ inputs.setup-gradle }}
         uses: gradle/actions/setup-gradle@v4.2.2
       - name: "Wrapper validation"
@@ -72,8 +72,6 @@ jobs:
         run: |
           JAR=$(ls build/libs/*.jar | head -n 1)
           NAME=$(basename "$JAR" | sed -E 's/-[0-9]+(\.[0-9]+)*\.jar//')
-          echo "Nom du plugin détecté : $NAME"
-          echo "NAME=$NAME" >> $GITHUB_ENV
       - name: Upload build artifact
         if: ${{ inputs.upload != '' }}
         uses: actions/upload-artifact@v4.5.0
