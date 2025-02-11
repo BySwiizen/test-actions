@@ -61,6 +61,11 @@ jobs:
           msg: ${{ inputs.build-project }}
           separator: ","
       - name: Build project
+      - name: Debug - Vérifier les valeurs de steps.split
+        run: |
+          echo "Valeur de steps.split.outputs._0 : ${{ steps.split.outputs._0 }}"
+          echo "Valeur de steps.split.outputs._1 : ${{ steps.split.outputs._1 }}"
+
         if: ${{ steps.split.outputs._0 && steps.split.outputs._1 }}
         uses: nick-invision/retry@v3.0.0
         with:
