@@ -31,7 +31,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.repository != 'BySwiizen/test-actions' }}
+    if: ${{ github.event_name != 'pull_request' || github.repository != github.event.pull_request.head.repo.full_name }}
     runs-on: ubuntu-latest
     steps:
       - name: "checkout git repository"
