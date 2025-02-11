@@ -7,4 +7,4 @@ runs:
     - name: "Exécuter le workflow partagé"
       run: gh workflow run .github/workflows/shared-ci.yml --ref ${{ github.ref }}
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_ACTION: ${{ secrets.GH_ACTION }}
