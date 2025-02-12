@@ -3,7 +3,7 @@ name: "Build Action TypeScript"
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
