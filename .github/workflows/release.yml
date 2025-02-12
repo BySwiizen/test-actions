@@ -34,7 +34,5 @@ jobs:
           body: "🚀 Nouvelle version publiée automatiquement sur GitHub !"
           draft: false
           prerelease: false
-          files: |
-            dist/index.js
         env:
             GH_ACTION: ${{ secrets.GH_ACTION }}
