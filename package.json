@@ -1,0 +1,22 @@
+{
+    "name": "github-actions-ts",
+    "version": "1.0.0",
+    "description": "Action GitHub en TypeScript pour exécuter le workflow partagé",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@actions/core": "^1.10.0",
+        "@actions/github": "^6.0.0",
+        "js-yaml": "^4.1.0"
+    },
+    "devDependencies": {
+        "@types/github": "^0.0.0",
+        "@types/node": "^22.13.1",
+        "@vercel/ncc": "^0.34.0",
+        "typescript": "^5.0.0"
+    }
+}

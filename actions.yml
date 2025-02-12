@@ -1,10 +1,17 @@
 name: "Run Shared CI"
 description: "Exécute le workflow partagé `shared-ci.yml`"
+author: "byswiizen"
 
 runs:
-  using: "composite"
+  using: node16
+  main: "dist/index.js"
+
   steps:
     - name: "Exécuter le workflow partagé"
       run: gh workflow run .github/workflows/shared-ci.yml --ref ${{ github.ref }}
       env:
         GH_ACTION: ${{ secrets.GH_ACTION }}
+
+branding:
+  icon: "play"
+  color: "blue"
